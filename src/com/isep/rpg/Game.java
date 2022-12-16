@@ -6,6 +6,7 @@ import com.isep.utils.ConsoleParser;
 import com.isep.utils.GUIParser;
 import com.isep.utils.InputParser;
 import com.isep.utils.scenecontrollers.StageLoader;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -256,6 +257,7 @@ public class Game
             if(this.heros.get(t).getHP() == 0)
             {
                 this.heros.remove(t);
+                StageLoader.player -= 1;
             }
 
             if(this.heros.size() == 0)
@@ -280,6 +282,7 @@ public class Game
             if(this.heros.get(t).getHP() == 0)
             {
                 this.heros.remove(t);
+                StageLoader.player -= 1;
             }
             if(this.heros.size() == 0)
             {

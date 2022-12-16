@@ -743,8 +743,10 @@ public class FightMenu
     @FXML
     protected void attackSmaug()
     {
+
         if(labelSmaug.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
+
             StageLoader.action = 1;
             StageLoader.currentEnemy = "Smaug";
             StageLoader.choiceEnd = true;
