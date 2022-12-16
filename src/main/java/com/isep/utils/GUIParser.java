@@ -8,12 +8,8 @@ import com.isep.utils.scenecontrollers.*;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.w3c.dom.html.HTMLBRElement;
 
 import java.io.IOException;
-import java.util.Scanner;
-
-import javax.sound.sampled.LineUnavailableException;
 
 public class GUIParser extends Application implements InputParser
 {

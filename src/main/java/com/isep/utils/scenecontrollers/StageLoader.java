@@ -33,7 +33,6 @@ public class StageLoader
     {
         // Create a new FXMLLoader object
         loader = new FXMLLoader(GUIParser.class.getResource(path));
-
         // Load the FXML file
         Parent root = loader.load();
         // Set the root node of the scene to the newly loaded FXML file

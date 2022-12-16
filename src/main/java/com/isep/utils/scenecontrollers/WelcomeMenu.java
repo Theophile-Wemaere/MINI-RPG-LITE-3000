@@ -1,15 +1,15 @@
 package com.isep.utils.scenecontrollers;
 
+import com.isep.utils.GUIParser;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.text.Font;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Objects;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -18,7 +18,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class WelcomeMenu
 {
-    String button_style = "-fx-border-color: #000000; -fx-background-color: #00000000; -fx-background-image: url('file:src/data/imgs/button-bg.jpg');";
+    String button_style = "-fx-border-color: #000000; -fx-background-color: #00000000; -fx-background-image: url('file:src/main/ressources/data/imgs/button-bg.jpg');";
 
     @FXML
     private Label title1, title2, corner1, corner2;
@@ -43,15 +43,15 @@ public class WelcomeMenu
         // -_-_-_-_-_-_-_-_-_- load fonts -_-_-_-_-_-_-_-_-_-
 
         // Load the font from the file at the specified path
-        title1.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 48));
-        title2.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 32));
-        corner1.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 13));
-        corner2.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 13));
-        begin.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
-        quit.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
-        sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
+        title1.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 48));
+        title2.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 32));
+        corner1.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        corner2.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        begin.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
+        quit.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
+        sound.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 20));
 
-        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/welcomeAudio.wav")));
+        this.clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(GUIParser.class.getResourceAsStream("/data/musics/welcomeAudio.wav"))));
         if(StageLoader.sound)
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         else
