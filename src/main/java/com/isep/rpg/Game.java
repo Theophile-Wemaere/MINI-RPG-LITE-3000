@@ -213,6 +213,9 @@ public class Game
                         // pass
                         actionFinished = true;
                         break;
+
+                    case -1:
+                        actionFinished = false;
                 }
             }
 

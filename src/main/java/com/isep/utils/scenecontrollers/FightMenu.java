@@ -719,11 +719,15 @@ public class FightMenu
     {
         if(labelAzog.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = "Azog";
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = "Azog";
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
     @FXML
@@ -731,11 +735,15 @@ public class FightMenu
     {
         if(labelSmaug.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = "Smaug";
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = "Smaug";
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
 
     }
@@ -744,11 +752,15 @@ public class FightMenu
     {
         if(labelLurtz.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = "Lurtz";
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = "Lurtz";
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
     @FXML
@@ -756,11 +768,15 @@ public class FightMenu
     {
         if(labelShelob.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = "Shelob";
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = "Shelob";
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
 

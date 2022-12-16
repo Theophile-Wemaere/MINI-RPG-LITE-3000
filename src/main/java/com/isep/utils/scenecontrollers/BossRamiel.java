@@ -5,6 +5,7 @@ import com.isep.rpg.hero.*;
 import com.isep.utils.GUIParser;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.effect.Bloom;
 import javafx.scene.image.Image;
@@ -87,7 +88,7 @@ public class BossRamiel
         labelMediumPotion.setFont(font2);
         labelHighPotion.setFont(font2);
 
-        labelRamiel.setFont(font2);
+        labelRamiel.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 26));
 
         labelWeaponHunter.setFont(font2);
         labelWeaponWarrior.setFont(font2);
@@ -366,7 +367,7 @@ public class BossRamiel
     private void updateBoss()
     {
         Enemy current = (Enemy) StageLoader.boss.get(0);
-        labelRamiel.setText(" \uF7D0  [" + Integer.toString(current.getHP()) + "] ramiel - angel of doom");
+        labelRamiel.setText(" \uF7D0  [" + Integer.toString(current.getHP()) + "] RAMIEL ANGEL OF DOOM");
     }
 
     private void setupHero(Hero hero, ImageView image, Label name)

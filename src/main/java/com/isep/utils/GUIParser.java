@@ -94,11 +94,7 @@ public class GUIParser extends Application implements InputParser
             if (target.getName().equals(c)) {
                 choice = targets.indexOf(target);
                 StageLoader.choiceEnd = false;
-                Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
-                if((current instanceof Healer && ((Healer) current).getSpellCost() >= 2) || (current instanceof Mage && ((Mage) current).getSpellCost() >= 1) || !(current instanceof SpellCaster))
-                    return choice;
-                else
-                    System.out.println(current.getName() +  " doesn't have enough mana");
+                return choice;
             }
         }
         return -1;
