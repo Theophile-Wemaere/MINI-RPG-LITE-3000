@@ -1,6 +1,6 @@
 out/
 TP4.iml
-.idea/
+#.idea/
 .classpath
 target/
 .project
