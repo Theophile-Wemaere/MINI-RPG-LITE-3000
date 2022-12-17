@@ -1,4 +1,37 @@
-# java mini RPG
+# MINI RPG LITE 3000
+
+### RPG implementation in java using OOP and graphical interface (javafx)
+
+#### What is it ?
+
+This code is my version of a Role Playing Game (or RPG) using java.
+The context was my algorithms and programming courses during my first year of engineer cycle in ISEP school, Paris.
+
+The global structure was made using the following UML :
+
+![UML](/imgs/UML.png)
+
+I modified the package structure a bit, I'll add the updated UML later.
+
+Here are some images of the game :
+
+![image 1](/imgs/screenshot1.png)
+
+![image 2](/imgs/screenshot2.png)
+
+Normally, I've added maven support so It should run on all main stream IDE like IntelliJ or Eclipse
+
+#### Sources
+
+_"Rendre à César ce qui est à César"_
+
+Even if i'm not gonna use this game for commercials purposes, here are the sources to the images / gifs / musics I've used in this game.
+
+```
+add sources
+```
+
+#### Dev notes
 
 ```
 todo : 

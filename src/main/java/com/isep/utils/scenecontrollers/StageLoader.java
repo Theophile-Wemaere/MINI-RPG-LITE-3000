@@ -50,7 +50,7 @@ public class StageLoader
         });
     }
 
-    public static boolean sound = false;
+    public static boolean sound = true;
     public static boolean choiceEnd = false;
     public static boolean Smaug = false;
     public static boolean Shelob = false;
