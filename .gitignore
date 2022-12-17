@@ -1,3 +1,7 @@
 out/
 TP4.iml
 .idea/
+.classpath
+target/
+.project
+.settings
