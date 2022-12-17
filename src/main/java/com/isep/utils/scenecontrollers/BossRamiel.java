@@ -635,11 +635,15 @@ public class BossRamiel
     {
         if(!(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = StageLoader.boss.get(0).getName();
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = StageLoader.boss.get(0).getName();
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
 

@@ -84,6 +84,7 @@ public class GUIParser extends Application implements InputParser
 
     public int getTarget(ArrayList<Combatant> targets)
     {
+        System.out.println(StageLoader.currentEnemy);
         String c;
         if(targets.get(0) instanceof Hero)
             c = StageLoader.currentTarget;

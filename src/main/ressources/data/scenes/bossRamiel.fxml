@@ -141,6 +141,11 @@
                   <Image url="@../imgs/ramiel.gif" />
                </image>
             </ImageView>
+            <Label fx:id="labelRamiel" alignment="CENTER" contentDisplay="CENTER" layoutX="-137.0" layoutY="168.0" minHeight="-Infinity" prefHeight="66.0" prefWidth="365.0" text="OO(20) RAMIEL ANGEL OF DOOM" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="26.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <AnchorPane fx:id="boxBag" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 5;" visible="false">
@@ -496,11 +501,6 @@
       <Label fx:id="currentCost" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="56.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" text="Mana cost : 2" textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="17.0" />
-         </font>
-      </Label>
-      <Label fx:id="labelRamiel" alignment="CENTER" contentDisplay="CENTER" layoutX="600.0" layoutY="332.0" minHeight="-Infinity" prefHeight="66.0" prefWidth="365.0" text="OO(20) RAMIEL ANGEL OF DOOM" textFill="WHITE">
-         <font>
-            <Font name="The Wild Breath of Zelda" size="26.0" />
          </font>
       </Label>
    </children>
