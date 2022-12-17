@@ -367,7 +367,7 @@ public class BossRamiel
     private void updateBoss()
     {
         Enemy current = (Enemy) StageLoader.boss.get(0);
-        labelRamiel.setText(" \uF7D0  [" + Integer.toString(current.getHP()) + "] RAMIEL ANGEL OF DOOM");
+        labelRamiel.setText(" [" + Integer.toString(current.getHP()) + "] RAMIEL ANGEL OF DOOM");
     }
 
     private void setupHero(Hero hero, ImageView image, Label name)

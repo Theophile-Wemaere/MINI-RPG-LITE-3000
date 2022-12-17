@@ -141,7 +141,7 @@
                   <Image url="@../imgs/ramiel.gif" />
                </image>
             </ImageView>
-            <Label fx:id="labelRamiel" alignment="CENTER" contentDisplay="CENTER" layoutX="-137.0" layoutY="168.0" minHeight="-Infinity" prefHeight="66.0" prefWidth="365.0" text="OO(20) RAMIEL ANGEL OF DOOM" textFill="WHITE">
+            <Label fx:id="labelRamiel" alignment="CENTER" contentDisplay="CENTER" layoutX="-137.0" layoutY="168.0" minHeight="-Infinity" prefHeight="66.0" prefWidth="365.0" text="(20) RAMIEL ANGEL OF DOOM" textFill="WHITE">
                <font>
                   <Font name="The Wild Breath of Zelda" size="26.0" />
                </font>

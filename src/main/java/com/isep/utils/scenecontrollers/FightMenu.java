@@ -70,10 +70,10 @@ public class FightMenu
         currentDamage.setFont(font);
         currentCost.setFont(font);
 
-        statusHero1.setFont(font);
-        statusHero2.setFont(font);
-        statusHero3.setFont(font);
-        statusHero4.setFont(font);
+        statusHero1.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        statusHero2.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        statusHero3.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        statusHero4.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
 
         labelShelob.setFont(font);
         labelSmaug.setFont(font);
@@ -419,19 +419,19 @@ public class FightMenu
                 {
                     case "Lurtz":
                         boxLurtz.setVisible(true);
-                        labelLurtz.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelLurtz.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                     case "Smaug":
                         boxSmaug.setVisible(true);
-                        labelSmaug.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelSmaug.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                     case "Azog":
                         boxAzog.setVisible(true);
-                        labelAzog.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelAzog.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                     case "Shelob":
                         boxShelob.setVisible(true);
-                        labelShelob.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelShelob.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                 }
             }
@@ -488,7 +488,7 @@ public class FightMenu
         else
         {
             status.setVisible(true);
-            status.setText(" \uF7D0  " + Integer.toString(hp) + " 聯  " + Integer.toString(def) + " 懲" + Integer.toString(mana) + " " + hero.getName());
+            status.setText("\uF7D0 " + Integer.toString(hp) + " 聯 " + Integer.toString(def) + " 懲" + Integer.toString(mana) + " " + hero.getName());
         }
     }
 
