@@ -1,6 +1,7 @@
 package com.isep.utils.scenecontrollers;
 
 import com.isep.rpg.hero.*;
+import com.isep.utils.GUIParser;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -17,10 +18,9 @@ import javafx.scene.input.MouseEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Objects;
+
 import javafx.collections.ObservableList;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.util.StringConverter;
 
 
 import javax.sound.sampled.AudioSystem;
@@ -30,7 +30,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class HeroMenu
 {
-    String button_style = "-fx-border-color: #000000; -fx-background-color: #00000000; -fx-background-image: url('file:src/data/imgs/button-bg.jpg');";
+    String button_style = "-fx-border-color: #000000; -fx-background-color: #00000000; -fx-background-image: url('file:src/main/ressources/data/imgs/button-bg.jpg');";
 
     @FXML
     private Label title,name1,name2,name3,name4,class1,class2,class3,class4;
@@ -115,9 +115,9 @@ public class HeroMenu
 
         // -_-_-_-_-_-_-_-_-_- load fonts -_-_-_-_-_-_-_-_-_-
 
-        Font font = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 24);
+        Font font = Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 24);
 
-        title.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 50));
+        title.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 50));
 
         name1.setFont(font);
         name2.setFont(font);
@@ -133,10 +133,10 @@ public class HeroMenu
         box3.setVisible(false);
         box4.setVisible(false);
 
-        fightButton.setFont(Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
-        sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
+        fightButton.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 20));
+        sound.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 20));
 
-        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/heroMenu.wav")));
+        this.clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(GUIParser.class.getResourceAsStream("/data/musics/heroMenu.wav"))));
         if(StageLoader.sound)
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         else
@@ -261,16 +261,16 @@ public class HeroMenu
         switch(choice)
         {
             case "Warrior":
-                image.setImage(new Image("/data/imgs/warrior.gif"));
+                image.setImage(new Image(GUIParser.class.getResource("/data/imgs/warrior.gif").toExternalForm()));
                 break;
             case "Hunter":
-                image.setImage(new Image("/data/imgs/hunter.gif"));
+                image.setImage(new Image(GUIParser.class.getResource("/data/imgs/hunter.gif").toExternalForm()));
                 break;
             case "Mage":
-                image.setImage(new Image("/data/imgs/mage.gif"));
+                image.setImage(new Image(GUIParser.class.getResource("/data/imgs/mage.gif").toExternalForm()));
                 break;
             case "Healer":
-                image.setImage(new Image("/data/imgs/healer.gif"));
+                image.setImage(new Image(GUIParser.class.getResource("/data/imgs/healer.gif").toExternalForm()));
                 break;
         }
     }

@@ -66,10 +66,17 @@ public class Game
         }
 
         // get the boss
-        Random random = new Random();
-        int max = this.BossNames.size() - 1;
-        int n = random.nextInt(max - 0 + 1) + 0; // generate number in [0;max], random name
-        Enemy boss = new Enemy(this.BossNames.get(n),20);
+
+        double hp = 10 + (2.5*this.number);
+        String name = "Ramiel";
+        if(!(this.parser instanceof GUIParser))
+        {
+            Random random = new Random();
+            int max = this.BossNames.size() - 1;
+            int n = random.nextInt(max - 0 + 1) + 0; // generate number in [0;max], random name
+            name = this.BossNames.get(n);
+        }
+        Enemy boss = new Enemy(name,(int) hp);
         this.boss.add(boss);
 
         if(this.parser instanceof GUIParser)
@@ -96,7 +103,7 @@ public class Game
             else if(this.playing && this.doBoss && !this.firstRound)
             {
                 this.firstRound = true;
-                StageLoader.player = 4; // automatically reset the number to 0 later
+                //StageLoader.player = 0; // automatically reset the number to 0 later
             }
             else if(this.playing)
             {
@@ -115,7 +122,8 @@ public class Game
             StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
             StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
 
-            if(StageLoader.player > StageLoader.herosNumber - 1)
+            //if(StageLoader.player > StageLoader.heros.size() - 1)
+            if(!this.doBoss || !(this.doBoss && this.firstRound) )
                 StageLoader.player = 0;
         }
     }
@@ -128,23 +136,17 @@ public class Game
         {
             Hero current = (Hero) heros.get(i);
             clearConsole();
-            if(this.parser instanceof ConsoleParser)
-            {
-                //printInventory();
-                printHeros();
-            }
+            printHeros();
             printInventory();
             printEnemies();
             if(!this.doBoss)
             {
-                if(this.parser instanceof ConsoleParser)
-                    printEnemies();
+                printEnemies();
                 currentEnemy = (ArrayList<Combatant>) this.enemies.clone();
             }
             else
             {
-                //if(this.parser instanceof ConsoleParser)
-                    printBoss();
+                printBoss();
                 currentEnemy = (ArrayList<Combatant>) this.boss.clone();
             }
 
@@ -153,6 +155,14 @@ public class Game
             int choice = this.parser.getAction(current,this.consumables.size());
             int target = 0;
             boolean actionFinished = false;
+
+            if(current instanceof SpellCaster && current.getMana() == 0 && this.consumables.size() == 0)
+            {
+                actionFinished = true;
+                System.out.println(current.getName() + " doesn't have enough mana to play");
+            }
+
+
             while(!actionFinished)
             {
                 switch(choice)
@@ -214,6 +224,9 @@ public class Game
                         // pass
                         actionFinished = true;
                         break;
+
+                    case -1:
+                        actionFinished = false;
                 }
             }
 
@@ -229,6 +242,7 @@ public class Game
                 System.out.println("\nCongratulations, you've won !\n");
                 this.doBoss = false;
                 this.playing = false;
+                break;
             }
             else
             {
@@ -241,6 +255,10 @@ public class Game
             }
             StageLoader.heros = (ArrayList<Combatant>) this.heros.clone();
             StageLoader.consumables = (ArrayList<Consumable>) this.consumables.clone();
+
+            // mana regeneration
+            if(current instanceof SpellCaster)
+                current.addMana(1);
         }
     }
 

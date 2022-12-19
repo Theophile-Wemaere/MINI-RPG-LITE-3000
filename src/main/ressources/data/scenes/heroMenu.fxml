@@ -113,7 +113,7 @@
          </children>
       </AnchorPane>
 
-      <Button fx:id="fightButton" alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="247.0" mnemonicParsing="false" onAction="#onFightButtonClick" style="-fx-border-color: #000000; -fx-background-color: #00000000; -fx-background-image: url('file:src/data/imgs/button-bg.jpg'); -fx-border-width: 3;" text="FIGHT !" textFill="WHITE">
+      <Button fx:id="fightButton" alignment="CENTER" contentDisplay="CENTER" layoutX="433.0" layoutY="247.0" mnemonicParsing="false" onAction="#onFightButtonClick" style="-fx-border-color: #000000; -fx-background-color: #00000000; -fx-background-image: url('file:src/main/ressources/data/imgs/button-bg.jpg'); -fx-border-width: 3;" text="FIGHT !" textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="21.0" />
          </font>

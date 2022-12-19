@@ -2,34 +2,21 @@ package com.isep.utils.scenecontrollers;
 
 import com.isep.rpg.Enemy;
 import com.isep.rpg.hero.*;
-import com.isep.rpg.item.Consumable;
+import com.isep.utils.GUIParser;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.geometry.NodeOrientation;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.effect.Bloom;
-import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.event.*;
-import javafx.scene.input.MouseEvent;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import javafx.collections.ObservableList;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
-import javafx.util.StringConverter;
-import javafx.util.Duration;
+import java.util.Objects;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -71,7 +58,7 @@ public class BossRamiel
     public void initialize() throws IOException, UnsupportedAudioFileException, LineUnavailableException, InterruptedException {
         // -_-_-_-_-_-_-_-_-_- load fonts -_-_-_-_-_-_-_-_-_-
 
-        Font font = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 17);
+        Font font = Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 17);
 
         nameHero1.setFont(font);
         nameHero2.setFont(font);
@@ -92,7 +79,7 @@ public class BossRamiel
         labelMalusSword.setFont(font);
         labelMalusCrossbow.setFont(font);
 
-        Font font2 = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 30);
+        Font font2 = Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 30);
         labelInventory.setFont(font2);
         labelOnigiri.setFont(font2);
         labelSushis.setFont(font2);
@@ -101,7 +88,7 @@ public class BossRamiel
         labelMediumPotion.setFont(font2);
         labelHighPotion.setFont(font2);
 
-        labelRamiel.setFont(font2);
+        labelRamiel.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 26));
 
         labelWeaponHunter.setFont(font2);
         labelWeaponWarrior.setFont(font2);
@@ -119,7 +106,7 @@ public class BossRamiel
         labelCrossbow.setFont(font2);
         labelDamageCrossbow.setFont(font2);
 
-        Font font3 = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 23);
+        Font font3 = Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 23);
         labelSpellMage.setFont(font2);
         labelSpellHealer.setFont(font2);
 
@@ -138,11 +125,11 @@ public class BossRamiel
         labelDamageHeal.setFont(font3);
         labelCostHeal.setFont(font3);
 
-        closeHunter.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        closeWarrior.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        closeMage.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        closeHealer.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        buttonCloseBag.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeHunter.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeWarrior.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeMage.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeHealer.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        buttonCloseBag.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
 
         statusHero2.setVisible(false);
         statusHero3.setVisible(false);
@@ -178,8 +165,8 @@ public class BossRamiel
             updateStatus(statusHero4,(Hero) StageLoader.heros.get(3));
         }
 
-        sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
-        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/boss-1.wav")));
+        sound.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 20));
+        this.clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(GUIParser.class.getResourceAsStream("/data/musics/boss-1.wav"))));
         if(StageLoader.sound)
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         else
@@ -325,10 +312,10 @@ public class BossRamiel
             switch(name)
             {
                 case "giant sword":
-                    currentWeapon.setImage(new Image("/data/imgs/sword.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/sword.png").toExternalForm()));
                     break;
                 case "saber":
-                    currentWeapon.setImage(new Image("/data/imgs/saber.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/saber.png").toExternalForm()));
                     break;
             }
         }
@@ -340,10 +327,10 @@ public class BossRamiel
             switch(name)
             {
                 case "bow":
-                    currentWeapon.setImage(new Image("/data/imgs/bow.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/bow.png").toExternalForm()));
                     break;
                 case "crossbow":
-                    currentWeapon.setImage(new Image("/data/imgs/crossbow.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/crossbow.png").toExternalForm()));
                     break;
             }
         }
@@ -359,19 +346,19 @@ public class BossRamiel
             switch(name)
             {
                 case "ice pick":
-                    currentWeapon.setImage(new Image("/data/imgs/icepick.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/icepick.gif").toExternalForm()));
                     break;
                 case "lightning":
-                    currentWeapon.setImage(new Image("/data/imgs/lightning.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/lightning.gif").toExternalForm()));
                     break;
                 case "fire storm":
-                    currentWeapon.setImage(new Image("/data/imgs/firestorm.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/firestorm.gif").toExternalForm()));
                     break;
                 case "holy ray":
-                    currentWeapon.setImage(new Image("/data/imgs/lightray.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/lightray.gif").toExternalForm()));
                     break;
                 case "healing touch":
-                    currentWeapon.setImage(new Image("/data/imgs/healingtouch.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/healingtouch.gif").toExternalForm()));
                     break;
             }
         }
@@ -380,7 +367,7 @@ public class BossRamiel
     private void updateBoss()
     {
         Enemy current = (Enemy) StageLoader.boss.get(0);
-        labelRamiel.setText(" \uF7D0  [" + Integer.toString(current.getHP()) + "] ramiel - angel of doom");
+        labelRamiel.setText(" [" + Integer.toString(current.getHP()) + "] RAMIEL ANGEL OF DOOM");
     }
 
     private void setupHero(Hero hero, ImageView image, Label name)
@@ -388,21 +375,22 @@ public class BossRamiel
         name.setText(hero.getName());
         if(hero instanceof Warrior)
         {
-            image.setImage(new Image("/data/imgs/warrior.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/warrior.gif").toExternalForm()));
         }
         if(hero instanceof Hunter)
         {
-            image.setImage(new Image("/data/imgs/hunter.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/hunter.gif").toExternalForm()));
         }
         if(hero instanceof Mage)
         {
-            image.setImage(new Image("/data/imgs/mage.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/mage.gif").toExternalForm()));
         }
         if(hero instanceof Healer)
         {
-            image.setImage(new Image("/data/imgs/healer.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/healer.gif").toExternalForm()));
         }
     }
+
 
     private void updateStatus(Label status, Hero hero)
     {
@@ -647,11 +635,15 @@ public class BossRamiel
     {
         if(!(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = StageLoader.boss.get(0).getName();
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = StageLoader.boss.get(0).getName();
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
 

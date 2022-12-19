@@ -8,12 +8,8 @@ import com.isep.utils.scenecontrollers.*;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.w3c.dom.html.HTMLBRElement;
 
 import java.io.IOException;
-import java.util.Scanner;
-
-import javax.sound.sampled.LineUnavailableException;
 
 public class GUIParser extends Application implements InputParser
 {
@@ -88,6 +84,7 @@ public class GUIParser extends Application implements InputParser
 
     public int getTarget(ArrayList<Combatant> targets)
     {
+        System.out.println(StageLoader.currentEnemy);
         String c;
         if(targets.get(0) instanceof Hero)
             c = StageLoader.currentTarget;
@@ -98,11 +95,7 @@ public class GUIParser extends Application implements InputParser
             if (target.getName().equals(c)) {
                 choice = targets.indexOf(target);
                 StageLoader.choiceEnd = false;
-                Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
-                if((current instanceof Healer && ((Healer) current).getSpellCost() >= 2) || (current instanceof Mage && ((Mage) current).getSpellCost() >= 1) || !(current instanceof SpellCaster))
-                    return choice;
-                else
-                    System.out.println(current.getName() +  " doesn't have enough mana");
+                return choice;
             }
         }
         return -1;

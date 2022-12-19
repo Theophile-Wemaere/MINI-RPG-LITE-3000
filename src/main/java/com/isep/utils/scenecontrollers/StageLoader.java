@@ -33,7 +33,6 @@ public class StageLoader
     {
         // Create a new FXMLLoader object
         loader = new FXMLLoader(GUIParser.class.getResource(path));
-
         // Load the FXML file
         Parent root = loader.load();
         // Set the root node of the scene to the newly loaded FXML file
@@ -51,7 +50,7 @@ public class StageLoader
         });
     }
 
-    public static boolean sound = false;
+    public static boolean sound = true;
     public static boolean choiceEnd = false;
     public static boolean Smaug = false;
     public static boolean Shelob = false;

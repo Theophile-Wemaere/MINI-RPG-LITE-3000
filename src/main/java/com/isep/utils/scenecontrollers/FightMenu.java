@@ -2,34 +2,20 @@ package com.isep.utils.scenecontrollers;
 
 import com.isep.rpg.Enemy;
 import com.isep.rpg.hero.*;
-import com.isep.rpg.item.Consumable;
+import com.isep.utils.GUIParser;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.geometry.NodeOrientation;
 import javafx.scene.control.*;
 import javafx.scene.effect.Bloom;
-import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.event.*;
-import javafx.scene.input.MouseEvent;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import javafx.collections.ObservableList;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.text.TextFlow;
-import javafx.stage.Stage;
-import javafx.util.StringConverter;
-import javafx.util.Duration;
+import java.util.Objects;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -73,7 +59,7 @@ public class FightMenu
     public void initialize() throws IOException, UnsupportedAudioFileException, LineUnavailableException, InterruptedException {
         // -_-_-_-_-_-_-_-_-_- load fonts -_-_-_-_-_-_-_-_-_-
 
-        Font font = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 17);
+        Font font = Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 17);
 
         nameHero1.setFont(font);
         nameHero2.setFont(font);
@@ -84,10 +70,10 @@ public class FightMenu
         currentDamage.setFont(font);
         currentCost.setFont(font);
 
-        statusHero1.setFont(font);
-        statusHero2.setFont(font);
-        statusHero3.setFont(font);
-        statusHero4.setFont(font);
+        statusHero1.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        statusHero2.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        statusHero3.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
+        statusHero4.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 13));
 
         labelShelob.setFont(font);
         labelSmaug.setFont(font);
@@ -99,7 +85,7 @@ public class FightMenu
         labelMalusSword.setFont(font);
         labelMalusCrossbow.setFont(font);
 
-        Font font2 = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 30);
+        Font font2 = Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 30);
         labelInventory.setFont(font2);
         labelOnigiri.setFont(font2);
         labelSushis.setFont(font2);
@@ -124,7 +110,7 @@ public class FightMenu
         labelCrossbow.setFont(font2);
         labelDamageCrossbow.setFont(font2);
 
-        Font font3 = Font.loadFont(new FileInputStream("src/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 23);
+        Font font3 = Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/TheWildBreathOfZelda-15Lv.ttf"), 23);
         labelSpellMage.setFont(font2);
         labelSpellHealer.setFont(font2);
 
@@ -143,11 +129,11 @@ public class FightMenu
         labelDamageHeal.setFont(font3);
         labelCostHeal.setFont(font3);
 
-        closeHunter.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        closeWarrior.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        closeMage.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        closeHealer.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
-        buttonCloseBag.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeHunter.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeWarrior.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeMage.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        closeHealer.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
+        buttonCloseBag.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 40));
 
         boxLurtz.setVisible(false);
         boxSmaug.setVisible(false);
@@ -208,8 +194,8 @@ public class FightMenu
             }
         }
 
-        sound.setFont(Font.loadFont(new FileInputStream("src/data/fonts/MesloLGS-NF.ttf"), 20));
-        this.clip.open(AudioSystem.getAudioInputStream(new File("src/data/musics/enemyAudio.wav")));
+        sound.setFont(Font.loadFont(GUIParser.class.getResourceAsStream("/data/fonts/MesloLGS-NF.ttf"), 20));
+        this.clip.open(AudioSystem.getAudioInputStream(Objects.requireNonNull(GUIParser.class.getResourceAsStream("/data/musics/enemyAudio.wav"))));
         if(StageLoader.sound)
             this.clip.loop(Clip.LOOP_CONTINUOUSLY);
         else
@@ -363,10 +349,10 @@ public class FightMenu
             switch(name)
             {
                 case "giant sword":
-                    currentWeapon.setImage(new Image("/data/imgs/sword.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/sword.png").toExternalForm()));
                     break;
                 case "saber":
-                    currentWeapon.setImage(new Image("/data/imgs/saber.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/saber.png").toExternalForm()));
                     break;
             }
         }
@@ -378,10 +364,10 @@ public class FightMenu
             switch(name)
             {
                 case "bow":
-                    currentWeapon.setImage(new Image("/data/imgs/bow.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/bow.png").toExternalForm()));
                     break;
                 case "crossbow":
-                    currentWeapon.setImage(new Image("/data/imgs/crossbow.png"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/crossbow.png").toExternalForm()));
                     break;
             }
         }
@@ -397,19 +383,19 @@ public class FightMenu
             switch(name)
             {
                 case "ice pick":
-                    currentWeapon.setImage(new Image("/data/imgs/icepick.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/icepick.gif").toExternalForm()));
                     break;
                 case "lightning":
-                    currentWeapon.setImage(new Image("/data/imgs/lightning.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/lightning.gif").toExternalForm()));
                     break;
                 case "fire storm":
-                    currentWeapon.setImage(new Image("/data/imgs/firestorm.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/firestorm.gif").toExternalForm()));
                     break;
                 case "holy ray":
-                    currentWeapon.setImage(new Image("/data/imgs/lightray.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/lightray.gif").toExternalForm()));
                     break;
                 case "healing touch":
-                    currentWeapon.setImage(new Image("/data/imgs/healingtouch.gif"));
+                    currentWeapon.setImage(new Image(GUIParser.class.getResource("/data/imgs/healingtouch.gif").toExternalForm()));
                     break;
             }
         }
@@ -433,19 +419,19 @@ public class FightMenu
                 {
                     case "Lurtz":
                         boxLurtz.setVisible(true);
-                        labelLurtz.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelLurtz.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                     case "Smaug":
                         boxSmaug.setVisible(true);
-                        labelSmaug.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelSmaug.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                     case "Azog":
                         boxAzog.setVisible(true);
-                        labelAzog.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelAzog.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                     case "Shelob":
                         boxShelob.setVisible(true);
-                        labelShelob.setText(" \uF7D0  [" + Integer.toString(hp) + "] " + current.getName());
+                        labelShelob.setText(" [" + Integer.toString(hp) + "] " + current.getName());
                         break;
                 }
             }
@@ -474,19 +460,19 @@ public class FightMenu
         name.setText(hero.getName());
         if(hero instanceof Warrior)
         {
-            image.setImage(new Image("/data/imgs/warrior.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/warrior.gif").toExternalForm()));
         }
         if(hero instanceof Hunter)
         {
-            image.setImage(new Image("/data/imgs/hunter.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/hunter.gif").toExternalForm()));
         }
         if(hero instanceof Mage)
         {
-            image.setImage(new Image("/data/imgs/mage.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/mage.gif").toExternalForm()));
         }
         if(hero instanceof Healer)
         {
-            image.setImage(new Image("/data/imgs/healer.gif"));
+            image.setImage(new Image(GUIParser.class.getResource("/data/imgs/healer.gif").toExternalForm()));
         }
     }
 
@@ -502,7 +488,7 @@ public class FightMenu
         else
         {
             status.setVisible(true);
-            status.setText(" \uF7D0  " + Integer.toString(hp) + " 聯  " + Integer.toString(def) + " 懲" + Integer.toString(mana) + " " + hero.getName());
+            status.setText("\uF7D0 " + Integer.toString(hp) + " 聯 " + Integer.toString(def) + " 懲" + Integer.toString(mana) + " " + hero.getName());
         }
     }
 
@@ -733,11 +719,15 @@ public class FightMenu
     {
         if(labelAzog.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = "Azog";
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = "Azog";
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
     @FXML
@@ -760,11 +750,15 @@ public class FightMenu
     {
         if(labelLurtz.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = "Lurtz";
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = "Lurtz";
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
     @FXML
@@ -772,11 +766,15 @@ public class FightMenu
     {
         if(labelShelob.isVisible() && !(StageLoader.heros.get(StageLoader.player) instanceof Healer && ((Healer)StageLoader.heros.get(StageLoader.player)).getSpellName().equals("healing touch")))
         {
-            StageLoader.action = 1;
-            StageLoader.currentEnemy = "Shelob";
-            StageLoader.choiceEnd = true;
-            this.thread = new Thread(() -> update());
-            this.thread.start();
+            Hero current = (Hero) StageLoader.heros.get(StageLoader.player);
+            if(!(current instanceof SpellCaster) || current.getMana() >= ((SpellCaster) current).getSpellCost())
+            {
+                StageLoader.action = 1;
+                StageLoader.currentEnemy = "Shelob";
+                StageLoader.choiceEnd = true;
+                this.thread = new Thread(() -> update());
+                this.thread.start();
+            }
         }
     }
 

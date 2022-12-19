@@ -134,6 +134,20 @@
             <Image url="@../imgs/icon-weapon.png" />
          </image>
       </ImageView>
+      <AnchorPane fx:id="boxRamiel" layoutX="729.0" layoutY="171.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#attackRamiel" prefHeight="152.0" prefWidth="124.0">
+         <children>
+            <ImageView fx:id="imageRamiel" fitHeight="318.0" fitWidth="350.0" layoutX="-117.0" layoutY="-126.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/ramiel.gif" />
+               </image>
+            </ImageView>
+            <Label fx:id="labelRamiel" alignment="CENTER" contentDisplay="CENTER" layoutX="-137.0" layoutY="168.0" minHeight="-Infinity" prefHeight="66.0" prefWidth="365.0" text="(20) RAMIEL ANGEL OF DOOM" textFill="WHITE">
+               <font>
+                  <Font name="The Wild Breath of Zelda" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane fx:id="boxBag" layoutX="309.0" layoutY="118.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" style="-fx-border-color: #944545; -fx-border-width: 5;" visible="false">
          <children>
             <ImageView fitHeight="342.0" fitWidth="342.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
@@ -487,20 +501,6 @@
       <Label fx:id="currentCost" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="56.0" minHeight="-Infinity" prefHeight="18.0" prefWidth="112.0" text="Mana cost : 2" textFill="WHITE">
          <font>
             <Font name="The Wild Breath of Zelda" size="17.0" />
-         </font>
-      </Label>
-      <AnchorPane fx:id="boxRamiel" layoutX="729.0" layoutY="171.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#attackRamiel" prefHeight="152.0" prefWidth="124.0">
-         <children>
-            <ImageView fx:id="imageRamiel" fitHeight="318.0" fitWidth="350.0" layoutX="-117.0" layoutY="-126.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imgs/ramiel.gif" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
-      <Label fx:id="labelRamiel" alignment="CENTER" contentDisplay="CENTER" layoutX="599.0" layoutY="357.0" minHeight="-Infinity" prefHeight="45.0" prefWidth="365.0" text="Ramiel " textFill="WHITE">
-         <font>
-            <Font name="The Wild Breath of Zelda" size="30.0" />
          </font>
       </Label>
    </children>

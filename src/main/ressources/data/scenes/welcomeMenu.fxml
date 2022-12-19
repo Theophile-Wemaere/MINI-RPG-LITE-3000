@@ -25,12 +25,12 @@
          <font>
             <Font name="The Wild Breath of Zelda" size="32.0" />
          </font></Label>
-        <Button fx:id="begin" alignment="CENTER" layoutX="381.0" layoutY="233.0" onAction="#onBeginButtonClick" prefHeight="45.0" prefWidth="195.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-background-color: #00000000; -fx-background-image: url('file:src/data/imgs/button-bg.jpg');" text="New Game" textFill="WHITE">
+        <Button fx:id="begin" alignment="CENTER" layoutX="381.0" layoutY="233.0" onAction="#onBeginButtonClick" prefHeight="45.0" prefWidth="195.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-background-color: #00000000; -fx-background-image: url('file:src/main/ressources/data/imgs/button-bg.jpg');" text="New Game" textFill="WHITE">
          <font>
             <Font name="Meslo LG S Regular Nerd Font Complete" size="16.0" />
          </font>
       </Button>
-        <Button fx:id="quit" alignment="CENTER" layoutX="381.0" layoutY="321.0" onAction="#onQuitButtonClick" prefHeight="46.0" prefWidth="195.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-background-color: #00000000; -fx-background-image: url('file:src/data/imgs/button-bg.jpg');" text="Quit" textFill="WHITE">
+        <Button fx:id="quit" alignment="CENTER" layoutX="381.0" layoutY="321.0" onAction="#onQuitButtonClick" prefHeight="46.0" prefWidth="195.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-background-color: #00000000; -fx-background-image: url('file:src/main/ressources/data/imgs/button-bg.jpg');" text="Quit" textFill="WHITE">
          <font>
             <Font name="Meslo LG S Regular Nerd Font Complete" size="16.0" />
          </font></Button>
