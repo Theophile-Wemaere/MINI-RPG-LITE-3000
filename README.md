@@ -11,7 +11,9 @@ The global structure was made using the following UML :
 
 ![UML](/imgs/UML.png)
 
-I modified the package structure a bit, I'll add the updated UML later.
+I modified the package structure a bit, here is the updated UML :
+
+![UML-2](/imgs/UML-2.png)
 
 Here are some images of the game :
 
@@ -28,7 +30,32 @@ _"Rendre à César ce qui est à César"_
 Even if i'm not gonna use this game for commercials purposes, here are the sources to the images / gifs / musics I've used in this game.
 
 ```
-add sources
+GIF for heros :
+https://www.pinterest.jp/pin/616359899018840415/
+https://www.pinterest.com.mx/pin/326229566749447817/
+https://www.pinterest.ca/pin/502714377145413366/
+https://www.pinterest.jp/pin/19210735902310386/
+
+GIF and imgs for enemies :
+https://br.pinterest.com/pin/486740672234858076/
+https://www.pinterest.com/pin/367465650842015921/
+https://www.pinterest.co.kr/pin/474918723200119901/
+https://bestanimations.com/Animals/Insects/Spiders/spider-animated-gif-3.gif
+https://i.redd.it/dilm5h6ljar91.png
+
+Diverses icon :
+https://www.pinterest.com/pin/893894226012549037/ (bagpack)
+https://www.pinterest.com/pin/stylised-gravestone-javier-fernandez--406027722637557635/ (grave)
+https://pixeljoint.com/files/icons/full/whole_set.png
+https://www.freeiconspng.com/img/32143
+
+Backgrounds :
+https://imgur.com/gallery/pTwKVqo
+https://www.pinterest.com/pin/36169603243444555/
+https://br.pinterest.com/pin/707557791438296232/
+https://www.spriters-resource.com/mobile/heroessaga/sheet/73775/
+https://www.spriters-resource.com/mobile/heroessaga/sheet/73774/
+
 ```
 
 #### Dev notes
@@ -64,12 +91,6 @@ lightning = 3 damage
 fire storm = 5 damage
 holy ray = 2 damage
 
-
-
 every enemy has 5 HP and between 5 and 7 defense
-https://www.youtube.com/watch?v=5bn3Jmvep1k&ab_channel=xDeviruchi
-https://www.pinterest.com/pin/893894226012549037/?mt=login
-https://pixeljoint.com/files/icons/full/whole_set.png
-https://www.freeiconspng.com
 the boss has 10HP and 10defense
 ```
