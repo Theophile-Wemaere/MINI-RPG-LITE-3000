@@ -1,6 +1,7 @@
 package com.isep.utils;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.isep.rpg.*;
@@ -17,11 +18,16 @@ public class ConsoleParser implements InputParser
         c = false;
         while(!c)
         {
-            System.out.print("\nHow many heros (max 4) : ");
-            choice = scanner.nextInt();
-            if(choice > 0 && choice <= 4)
+            try
             {
-                c = true;
+                System.out.print("\nHow many heros (max 4) : ");
+                choice = scanner.nextInt();
+                if(choice > 0 && choice <= 4)
+                {
+                    c = true;
+                }
+            } catch (InputMismatchException ime) {
+                scanner.nextLine();
             }
         }
         return choice;
@@ -42,11 +48,16 @@ public class ConsoleParser implements InputParser
         c = false;
         while(!c)
         {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
-            if(choice >= 1 && choice <= 4)
+            try
             {
-                c = true;
+                    System.out.print("Enter your choice : ");
+                    choice = scanner.nextInt();
+                    if(choice >= 1 && choice <= 4)
+                    {
+                        c = true;
+                    }
+            } catch (InputMismatchException ime) {
+                scanner.nextLine();
             }
         }
         switch(choice)
@@ -106,8 +117,13 @@ public class ConsoleParser implements InputParser
         
         while(!c)
         {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
+            try
+            {
+                System.out.print("Enter your choice : ");
+                choice = scanner.nextInt();
+            } catch (InputMismatchException ime) {
+                scanner.nextLine();
+            }
             if(hero instanceof SpellCaster)
             {
                 if(hero instanceof Mage)
@@ -220,8 +236,13 @@ public class ConsoleParser implements InputParser
         c = false;
         while(!c)
         {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
+            try
+            {
+                System.out.print("Enter your choice : ");
+                choice = scanner.nextInt();
+            } catch (InputMismatchException ime) {
+                scanner.nextLine();
+            }
             if(choice >= 1 && choice <= max)
             {
                 hero.chooseSpell(choice);
@@ -244,7 +265,7 @@ public class ConsoleParser implements InputParser
     {
         Scanner scanner = new Scanner(System.in);
         boolean c = false;
-        int weapon;
+        int weapon = 0;
         System.out.println("\nChoose your weapons : ");    
         if(hero instanceof Warrior)
         {
@@ -253,8 +274,13 @@ public class ConsoleParser implements InputParser
             c = false;
             while(!c)
             {
-                System.out.print("Enter your choice : ");
-                weapon = scanner.nextInt();
+                try
+                {
+                    System.out.print("Enter your choice : ");
+                    weapon = scanner.nextInt();
+                } catch (InputMismatchException ime) {
+                    scanner.nextLine();
+                }
                 if(weapon == 1 || weapon == 2)
                 {
                     c = true;
@@ -269,8 +295,14 @@ public class ConsoleParser implements InputParser
             c = false;
             while(!c)
             {
-                System.out.print("Enter your choice : ");
-                weapon = scanner.nextInt();
+                try
+                {
+                    System.out.print("Enter your choice : ");
+                    weapon = scanner.nextInt();
+                } catch (InputMismatchException ime) {
+                    scanner.nextLine();
+                }
+
                 if(weapon == 1 || weapon == 2)
                 {
                     c = true;
@@ -293,8 +325,12 @@ public class ConsoleParser implements InputParser
         c = false;
         while(!c)
         {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
+            try {
+                System.out.print("Enter your choice : ");
+                choice = scanner.nextInt();
+            } catch (InputMismatchException ime) {
+                scanner.nextLine();
+            }
             if(choice >= 1 && choice <= targets.size())
             {
                 c = true;
@@ -316,8 +352,12 @@ public class ConsoleParser implements InputParser
         c = false;
         while(!c)
         {
-            System.out.print("Enter your choice : ");
-            choice = scanner.nextInt();
+            try {
+                System.out.print("Enter your choice : ");
+                choice = scanner.nextInt();
+            } catch (InputMismatchException ime) {
+                scanner.nextLine();
+            }
             if(choice >= 1 && choice <= consumables.size())
             {
                 c = true;
