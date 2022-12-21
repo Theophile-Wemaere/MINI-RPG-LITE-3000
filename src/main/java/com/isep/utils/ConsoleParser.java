@@ -38,8 +38,8 @@ public class ConsoleParser implements InputParser
         Scanner scanner = new Scanner(System.in);
         boolean c;
         int choice = 0;
-        // System.out.print("Enter your hero name : ");
-        // String name = scanner.nextLine();
+        System.out.print("Enter your hero name : ");
+        String name = scanner.nextLine();
         System.out.println("\nChoose your hero classe : ");
         System.out.println("[1] Warrior : powerfull and solid (HP:4|Defense:5|MaxDamage:3)");
         System.out.println("[2] Hunter : fast and precise (HP:4|Defense:4|MaxDamage:3)");
@@ -63,19 +63,19 @@ public class ConsoleParser implements InputParser
         switch(choice)
         {
             case 1:
-                Warrior warrior = new Warrior("Aragorn");
+                Warrior warrior = new Warrior(name);
                 return warrior;
             
             case 2:
-                Hunter hunter = new Hunter("Legolas");
+                Hunter hunter = new Hunter(name);
                 return hunter;
 
             case 3:
-                Mage mage = new Mage("Gandalf");
+                Mage mage = new Mage(name);
                 return mage;
 
             case 4:
-                Healer healer = new Healer("Elrond");
+                Healer healer = new Healer(name);
                 return healer;
         }
         return null;     

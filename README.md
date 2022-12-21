@@ -23,6 +23,12 @@ Here are some images of the game :
 
 Normally, I've added maven support so It should run on all main stream IDE like IntelliJ or Eclipse
 
+#### How to play ?
+
+You can choose to play with a TUI (Text User Interface) or a GUI (Graphical User Interface).
+If you choose to play with the TUI, all actions can be done with a selector (input your choice)
+If you choose to play with the GUI, you just have to click on enemies to attack, on heros to heal and on inventory or weapons buttons to use consumbables or switch weapons/spells
+
 #### Sources
 
 _"Rendre à César ce qui est à César"_
